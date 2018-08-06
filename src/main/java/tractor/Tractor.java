@@ -33,7 +33,10 @@ public class Tractor {
         } else if ("T".equals(command)) {
             turnClockwise();
         }
+    }
 
+    private void turnClockwise() {
+        orientation = orientation.clockwise();
     }
 
     private void moveForward() {
@@ -51,17 +54,17 @@ public class Tractor {
                 positionX--;
                 break;
         }
-        if (positionX > FIELD_X_BOUND || positionY > FIELD_Y_BOUND) {
+        validatePosition();
+    }
+
+    private void validatePosition() {
+        if (positionX > FIELD_X_BOUND || positionX < 0 || positionY > FIELD_Y_BOUND || positionY < 0) {
             try {
                 throw new TractorInDitchException();
             } catch (TractorInDitchException e) {
                 e.printStackTrace();
             }
         }
-    }
-
-    private void turnClockwise() {
-        orientation = orientation.clockwise();
     }
 
     public int getPositionX() {
