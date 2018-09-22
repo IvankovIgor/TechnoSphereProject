@@ -19,6 +19,7 @@
 hs_err_pid*
 
 # IntelliJ idea files
+.idea/
 .idea/workspace.xml
 .idea/libraries
 *.iml
@@ -28,3 +29,6 @@ src/test/java/main/
 log/
 .idea/dataSources.local.xml
 .idea/dataSources/
+
+.gradle/
+build/
