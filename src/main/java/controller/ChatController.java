@@ -1,5 +1,7 @@
 package controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import model.Message;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -13,11 +15,11 @@ import repository.PlayerRepository;
 
 import java.lang.invoke.MethodHandles;
 import java.util.Collection;
-import java.util.stream.Collectors;
 
 /**
  * @author Igor Ivankov
  */
+@Api
 @RestController
 @RequestMapping("/chat")
 public class ChatController {
@@ -33,16 +35,19 @@ public class ChatController {
     }
 
     @RequestMapping(
-            path = "say",
+            path = "send",
             method = RequestMethod.GET)
-    public void say(@RequestParam Long playerId, @RequestParam String messageString) {
+    @ApiOperation(value = "Send message")
+    public void send(@RequestParam Long playerId, @RequestParam String messageString) {
         messageRepository.put(new Message(1, messageString, playerRepository.get(playerId)));
     }
 
     @RequestMapping(
             path = "messages",
             method = RequestMethod.GET)
-    public Collection<String> messages() {
-        return messageRepository.getAll().stream().map(Message::getContent).collect(Collectors.toList());
+    @ApiOperation(value = "Get all messages")
+    public Collection<Message> messages() {
+//        return messageRepository.getAll().stream().map(Message::getContent).collect(Collectors.toList());
+        return messageRepository.getAll();
     }
 }

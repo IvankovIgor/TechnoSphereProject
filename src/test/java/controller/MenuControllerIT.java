@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 
 import java.net.URL;
 
-import Application;
+import application.Application;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

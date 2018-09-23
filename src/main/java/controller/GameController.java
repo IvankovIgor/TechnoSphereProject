@@ -1,6 +1,7 @@
 package controller;
 
 import com.google.common.collect.Lists;
+import io.swagger.annotations.Api;
 import model.Game;
 import model.Message;
 import model.Player;
@@ -22,7 +23,7 @@ import java.util.stream.Collectors;
 /**
  * @author Igor Ivankov
  */
-
+@Api
 @RestController
 @RequestMapping("/game")
 public class GameController {

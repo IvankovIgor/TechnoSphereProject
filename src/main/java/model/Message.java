@@ -1,5 +1,7 @@
 package model;
 
+import io.swagger.annotations.ApiModel;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -7,6 +9,7 @@ import java.util.Objects;
  * @author Igor Ivankov
  */
 @Entity
+@ApiModel(value = "MESSAGE!")
 public class Message {
 
     @Id

@@ -1,5 +1,6 @@
 package controller;
 
+import io.swagger.annotations.Api;
 import model.Player;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -17,6 +18,7 @@ import java.util.stream.Collectors;
 /**
  * @author Igor Ivankov
  */
+@Api
 @RestController
 @RequestMapping("/player")
 public class PlayerController {
@@ -41,7 +43,7 @@ public class PlayerController {
     @RequestMapping(
             path = "login",
             method = RequestMethod.GET)
-    public void say(@RequestParam String name) {
+    public void login(@RequestParam String name) {
         playerRepository.save(new Player(name));
     }
 }
