@@ -1,12 +1,9 @@
-package repository;
+package org.ivankov.technosphere.project.repository;
 
-import model.Message;
-import model.Player;
+import org.ivankov.technosphere.project.model.Message;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * @author Igor Ivankov

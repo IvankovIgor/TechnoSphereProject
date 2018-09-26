@@ -1,4 +1,4 @@
-package model;
+package org.ivankov.technosphere.project.model;
 
 import io.swagger.annotations.ApiModel;
 

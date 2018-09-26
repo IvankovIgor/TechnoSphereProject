@@ -1,15 +1,26 @@
 plugins {
     id 'java'
     id 'org.springframework.boot' version '2.0.4.RELEASE'
+    id "io.spring.dependency-management" version "1.0.6.RELEASE"
 }
 
-group 'org.ivankovigor'
+group 'org.ivankov'
 version '1.0-SNAPSHOT'
 
-//sourceCompatibility = 1.8
+sourceCompatibility = 1.8
 
 repositories {
+    mavenLocal()
     mavenCentral()
+}
+
+dependencyManagement {
+    dependencies {
+        dependencySet(group: 'io.springfox', version: '2.9.2') {
+            entry 'springfox-swagger2'
+            entry 'springfox-swagger-ui'
+        }
+    }
 }
 
 dependencies {
@@ -18,25 +29,24 @@ dependencies {
     compile group: 'com.h2database', name: 'h2', version: '1.4.197'
     compile group: 'com.google.guava', name: 'guava', version: '26.0-jre'
     compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.0'
-    compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
-    compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
-    compile group: 'org.springframework.security', name: 'spring-security-web', version: '5.0.7.RELEASE'
-    compile group: 'org.springframework.security', name: 'spring-security-config', version: '5.0.7.RELEASE'
+    compile group: 'io.springfox', name: 'springfox-swagger2'
+    compile group: 'io.springfox', name: 'springfox-swagger-ui'
 //    compile group: 'postgresql', name: 'postgresql', version: '9.1-901-1.jdbc4'
 
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.0.4.RELEASE'
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '2.0.4.RELEASE'
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.0.4.RELEASE'
-    compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
-    compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa'
+    compile group: 'org.springframework.security', name: 'spring-security-web'
+    compile group: 'org.springframework.security', name: 'spring-security-config'
 
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.0.4.RELEASE'
-
-
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
 }
 
-jar {
-    from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
-    manifest { attributes 'Main-Class': 'main.Application' }
+bootJar {
+    mainClassName = 'org.ivankov.technosphere.project.Application'
+}
+
+bootRun {
+    main = 'org.ivankov.technosphere.project.Application'
 }

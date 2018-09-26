@@ -1,4 +1,4 @@
-package repository;
+package org.ivankov.technosphere.project.repository;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

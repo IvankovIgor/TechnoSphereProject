@@ -1,14 +1,10 @@
-package repository;
+package org.ivankov.technosphere.project.repository;
 
-import model.Player;
+import org.ivankov.technosphere.project.model.Player;
 import org.springframework.stereotype.Repository;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 
 @Repository
 public class PlayerRepositoryImpl implements PlayerRepository {

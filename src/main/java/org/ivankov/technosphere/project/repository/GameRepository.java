@@ -1,6 +1,6 @@
-package repository;
+package org.ivankov.technosphere.project.repository;
 
-import model.Game;
+import org.ivankov.technosphere.project.model.Game;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

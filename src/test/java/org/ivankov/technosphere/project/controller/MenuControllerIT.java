@@ -1,6 +1,6 @@
-package controller;
+package org.ivankov.technosphere.project.controller;
 
-import application.Application;
+import org.ivankov.technosphere.project.Application;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

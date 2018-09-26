@@ -1,10 +1,8 @@
-package repository;
+package org.ivankov.technosphere.project.repository;
 
-import model.Player;
-import org.springframework.data.repository.CrudRepository;
+import org.ivankov.technosphere.project.model.Player;
 
 import java.util.Collection;
-import java.util.List;
 
 public interface PlayerRepository {
     Collection<Player> getAll();

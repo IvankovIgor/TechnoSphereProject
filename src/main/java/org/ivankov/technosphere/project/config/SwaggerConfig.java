@@ -1,4 +1,4 @@
-package config;
+package org.ivankov.technosphere.project.config;
 
 import io.swagger.annotations.Api;
 import org.springframework.context.annotation.Bean;
@@ -25,8 +25,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-//                .apis(RequestHandlerSelectors.withClassAnnotation(Api.class))
-                .apis(RequestHandlerSelectors.any())
+                .apis(RequestHandlerSelectors.withClassAnnotation(Api.class))
                 .paths(PathSelectors.any())
                 .build();
     }

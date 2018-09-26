@@ -1,13 +1,13 @@
-package controller;
+package org.ivankov.technosphere.project.controller;
 
 import io.swagger.annotations.Api;
-import model.Player;
+import org.ivankov.technosphere.project.model.Player;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import repository.PlayerRepository;
+import org.ivankov.technosphere.project.repository.PlayerRepository;
 
 import java.lang.invoke.MethodHandles;
 import java.util.Collection;
