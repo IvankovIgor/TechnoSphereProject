@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '2.0.4.RELEASE'
+    id 'org.springframework.boot' version '2.0.5.RELEASE'
     id "io.spring.dependency-management" version "1.0.6.RELEASE"
 }
 
@@ -12,6 +12,7 @@ sourceCompatibility = 1.8
 repositories {
     mavenLocal()
     mavenCentral()
+    maven { url "https://repo.spring.io/milestone" }
 }
 
 dependencyManagement {
@@ -31,22 +32,14 @@ dependencies {
     compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.0'
     compile group: 'io.springfox', name: 'springfox-swagger2'
     compile group: 'io.springfox', name: 'springfox-swagger-ui'
+    compile 'org.thymeleaf.extras:thymeleaf-extras-springsecurity4:3.0.2.RELEASE'
 //    compile group: 'postgresql', name: 'postgresql', version: '9.1-901-1.jdbc4'
 
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa'
-    compile group: 'org.springframework.security', name: 'spring-security-web'
-    compile group: 'org.springframework.security', name: 'spring-security-config'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security'
 
     testCompile group: 'junit', name: 'junit', version: '4.12'
     testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
-}
-
-bootJar {
-    mainClassName = 'org.ivankov.technosphere.project.Application'
-}
-
-bootRun {
-    main = 'org.ivankov.technosphere.project.Application'
 }

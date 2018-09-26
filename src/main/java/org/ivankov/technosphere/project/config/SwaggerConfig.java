@@ -36,7 +36,7 @@ public class SwaggerConfig {
                 "technosphere-project API for chat.",
                 "API TOS",
                 "Terms of service",
-                new Contact("Igor Ivankov", "www.ivankovigor.com", "ivankov.i.f@gmail.com"),
+                new Contact("Igor Ivankov", "www.ivankov.org", "ivankov.i.f@gmail.com"),
                 "License of API", "API license URL", Collections.emptyList());
     }
 }

@@ -16,9 +16,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-            .withUser("temp").password(passwordEncoder().encode("temp")).roles("ADMIN")
+//                .withUser("temp").password(passwordEncoder().encode("temp")).roles("ADMIN")
+            .withUser("temp").password("temp").roles("ADMIN")
             .and()
-            .withUser("user").password(passwordEncoder().encode("userPass")).roles("USER")
+            .withUser("user").password("userPass").roles("USER")
                 .and()
                 .withUser("user1").password("userPass1").roles("USER");
     }
@@ -35,19 +36,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //            .failureHandler(new SimpleUrlAuthenticationFailureHandler())
 
             .authorizeRequests()
-            .antMatchers("/player/login").anonymous()
-            .anyRequest().authenticated()
-            .and()
+                .antMatchers("/", "/player/**", "/actuator/**").permitAll()
+//            .antMatchers("/player/login").anonymous()
+                .antMatchers("/chat/**").hasRole("USER")
+//            .anyRequest()
+//                .authenticated()
+                .and()
             .formLogin()
-            .loginPage("/login.html")
-            .defaultSuccessUrl("/homepage.html")
-            .failureUrl("/login.html?error=true")
-            .and()
-            .logout().logoutSuccessUrl("/login.html");
+                .loginPage("/player/login")
+                .permitAll()
+                .defaultSuccessUrl("/")
+                .failureUrl("/player/login-error")
+                .and()
+            .logout()
+                .permitAll()
+                .logoutSuccessUrl("/login");
     }
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+//    @Bean
+//    public PasswordEncoder passwordEncoder() {
+//        return new BCryptPasswordEncoder();
+//    }
 }
